@@ -1,0 +1,109 @@
+@font-face{
+    font-family:"Silkscreen";
+    src: url(../font/slkscr.ttf);
+}
+
+body,h1,h5 {font-family: "Silkscreen"}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('../img/background.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+#Game{
+    width: 75vw;
+    height: 600px;
+}
+
+@media only screen and (max-width: 600px) {
+    #Game { 
+        margin-top: 100px ;
+        height: 50vh;
+        width: 90vw;
+
+    }
+}
+
+#MContato{
+    width: 450px;
+}
+
+#screen{
+    width:auto;
+    height: 100%;
+    border: none;
+    opacity:1 ;
+}
+
+span.infor{
+    font-size: 13px;
+    /* word-spacing: -10px  !important; */
+    line-height:10px !important;
+    color:black;
+    font-weight: bold;
+}
+#MGame{
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+#QSobre{
+    margin-top: 0px !important;
+}
+
+@media only screen and (max-width: 600px) {#MContato {width: 250px;}}
+
+@media only screen and (min-width: 601px) {
+    #mySidebar {
+        width: 15vw !important;
+    }
+}
+
+h1,div>p,span{
+    color: white;
+}
+
+#mySidebar{
+    background-color: #151515;
+    color: white;
+}
+
+@media only screen and (min-width: 1130px) {
+    #mySidebar {
+        min-width: 18vw !important;
+    }
+} 
+
+@media only screen and (min-width: 601px) and (max-width: 1130px) {
+    #mySidebar {
+        width: 25vw !important;
+    }
+} 
+
+@media only screen and (max-width: 600px) and (min-width: 401px) {
+    #mySidebar {
+        width: 45vw !important;
+    }
+} 
+
+@media only screen and (min-width: 0px) and (max-width: 400px) {
+    #mySidebar {
+        width: 70vw !important;
+    }
+} 
+#SobreJogo{
+    padding-top: 35vh;
+    
+}
+
+#SobreNos{
+    padding-top: 25vh;
+}
+
+#Contato{
+    padding-top: 26vh;
+}
