@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        @font-face {
+            font-family: "pixel";
+            src: url('fonts/slkscr.ttf');
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Menu-->
+    <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left w3-hover-opacity-off"
+        style="display:none;z-index:2;" id="mySidebar">
+        <a href="javascript:void(0)" onclick="close_menu()"
+            class="w3-bar-item w3-button w3-right w3-white w3-hover-black">☰ Desert Game</a>
+        <p class="w3-hover-black"><a onclick="document.getElementById('SobreJogo').style.display='block'"
+                class="w3-hover-black w3-button w3-round"><i class="w3-large material-icons">videogame_asset</i> o
+                Jogo</a></p>
+        <!--<img src="img/controle2.jpg" width="30" />-->
+        <p class="w3-hover-black"><a onclick="document.getElementById('SobreNos').style.display='block'"
+                class="w3-hover-black w3-button w3-round"><i class="w3-large large material-icons">people_outline</i>
+                Quem Somos</a></p>
+        <p class="w3-hover-black"><a onclick="document.getElementById('Contato').style.display='block'"
+                class=" w3-hover-black w3-button  w3-round"><i class="w3-large large material-icons">contact_mail</i>
+                Contato</a></p>
+    </nav>
+
+    <div class="bgimg w3-display-container w3-text-white">
+        <div class="w3-display-middle w3-jumbo content">
+            <!--Tela-->
+            <canvas id="screen" width="900" height="600" style="border:1px solid #000000;">
+
+            </canvas>
+
+            <!--Songs-->
+
+            <div id="songs">
+                <audio id="songOutGameBottom" loop src="songs/gameBottom.mp3"></audio>
+                <audio id="songOutGameBottomMenu" loop src="songs/gameBottomMenu.mp3"></audio>
+                <audio id="playerJump" src="songs/playerJump.mp3"></audio>
+                <audio id="playerDamage" src="songs/playerDamage.mp3"></audio>
+                <audio id="mobDamage" src="songs/mobDamage.mp3"></audio>
+                <audio id="playerDead" loop src="songs/deadPlayer.mp3"></audio>
+            </div>
+
+        </div>
+
+        <div class="w3-display-topleft w3-container w3-xlarge">
+            <button class="w3-button w3-padding-16 w3-left w3-circle w3-hover-none" onclick="open_menu()">☰</button>
+        </div>
+
+        <div class="w3-display-bottomleft w3-container">
+            <!-- <p class="w3-xlarge">monday - friday 10-23 | saturday 14-02</p> -->
+            <p class="w3-large">Fortaleza, Ce</p>
+            <p>Direitos reservados P2LDEVs</p>
+        </div>
+
+    </div>
+
+    <!-- Sobre o Jogo -->
+    <div id="SobreJogo" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+            <div class="w3-container w3-display-container" style="background-color: #151515;">
+                <button onclick="document.getElementById('SobreJogo').style.display='none'"
+                    style="color: white; background-color: #151515; border:none"
+                    class="w3-hover-none w3-display-topright w3-large w3-round">X</button>
+                <h1>Sobre o Jogo</h1>
+            </div>
+            <div class="w3-container">
+                <h5>O Jogo em plataforma 2D, retrata a história de um Jovem chamado Carlin da Barra que tem o objetivo
+                    de mostra seu valor para os outros.</h5>
+                <h5>Foi desenvolvido utilizando Js puro, padrões orientado a objetos, canvas, piskelapp</h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quem Somos -->
+    <div id="SobreNos" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom" id="QSobre">
+            <div class="w3-container w3-display-container" style="background-color: #151515;">
+                <button onclick="document.getElementById('SobreNos').style.display='none'"
+                    style="color: white; background-color: #151515; border:none"
+                    class="w3-hover-none w3-display-topright w3-large w3-round">X</button>
+                <h1>Quem Somos </h1>
+            </div>
+            <div class="w3-padding w3-container w3-row">
+                <div class="w3-col l6 m6 s12 w3-margin-top">
+                    <img src="img/Luidy.jpg" alt="Avatar" width="120" height="120" class="w3-left w3-circle">
+                    <div class="w3-padding-16" style="margin-left:130px !important">
+                        <span class="infor">Luidy Moura</span><br />
+                        <span class="infor">19 Anos</span><br />
+                        <span class="infor">Desenvolvedor Salesforce</span><br />
+                        <span class="infor">Cursando 3° Semestre</span>
+                    </div>
+                </div>
+
+                <div class="w3-col l6 m6 s12 w3-margin-top">
+                    <img src="img/Davi.jpg" alt="Avatar" width="120" height="120" class="w3-left w3-circle">
+                    <div class="w3-padding-16" style="margin-left:130px !important">
+                        <span class="infor">Davi Ferreira</span><br />
+                        <span class="infor">19 Anos</span><br />
+                        <span class="infor">Desenvolvedor Abap</span><br />
+                        <span class="infor">Cursando 3° Semestre</span>
+                    </div>
+                </div>
+
+                <div class="w3-col l6 m6 s12 w3-margin-top">
+                    <img src="img/Paulo.jpg" alt="Avatar" width="120" height="120" class="w3-left w3-circle">
+                    <div class="w3-padding-16" style="margin-left:130px !important">
+                        <span class="infor">Paulo Iury</span><br />
+                        <span class="infor">19 Anos</span><br />
+                        <span class="infor">Desenvolvedor Mobile</span><br />
+                        <span class="infor">Cursando 3° Semestre</span>
+                    </div>
+                </div>
+
+                <div class="w3-col l6 m6 s12 w3-margin-top">
+                    <img src="img/Lucas.jpg" alt="Avatar" width="120" height="120" class="w3-left w3-circle">
+                    <div class="w3-padding-16" style="margin-left:130px !important">
+                        <span class="infor">Lucas nascimento</span><br />
+                        <span class="infor">19 Anos</span><br />
+                        <span class="infor">Desenvolvedor Mobile</span><br />
+                        <span class="infor">Cursando 3° Semestre</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Contato-->
+    <div id="Contato" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom" id="MContato">
+            <div class="w3-container" style="background-color: #151515;">
+                <button onclick="document.getElementById('Contato').style.display='none'"
+                    style="color: white; background-color: #151515; border:none"
+                    class="w3-hover-none w3-display-topright w3-large w3-round">X</button>
+                <h1>Contato</h1>
+            </div>
+            <div class="w3-container">
+                <p>Envie-nos um feedback</p>
+                <form action="#Enviado" method="post">
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Nome" required
+                            name="Nome"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="email" placeholder="Email" required
+                            name="Email"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Mensagem" required
+                            name="Mensagem"></p>
+                    <p><button class="w3-button" style="background-color: #151515;color:white"
+                            type="submit">Enviar</button></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--Scripts-->
+    <script src="js/model/DialogMessage.js"></script>
+    <script src="js/model/BossDialog.js"></script>
+
+    <script src="js/system/audio.js" ></script>
+    <script src="js/system/menu.js" ></script>
+    
+    <script src="js/model/Life.js" ></script>
+    <script src="js/model/Person.js" ></script>
+
+    <script src="js/model/Mob.js" ></script>
+
+    <script src="js/model/Map.js" ></script>
+
+    <script src="js/system/keyboard.js" ></script>
+    <script src="js/system/gamepad.js" ></script>    
+    <script src="js/proccess/index.js"></script>
+
+    <script src="js/util/phrases.js"></script>
+
+    <script src="js/screen.js"></script>
+</body>
+
+</html>
